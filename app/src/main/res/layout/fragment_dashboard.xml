@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment" >
 
+
+
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
@@ -16,8 +18,54 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintVertical_bias="0.053" />
+
+    <Button
+        android:id="@+id/button_addition"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="120dp"
+        android:text="Dodawanie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_subtraction"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="48dp"
+        android:text="Odejmowanie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_addition" />
+
+    <Button
+        android:id="@+id/button_multiplication"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="48dp"
+        android:text="Mnożenie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_subtraction" />
+
+    <Button
+        android:id="@+id/button_division"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="48dp"
+        android:text="Dzielenie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_multiplication" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

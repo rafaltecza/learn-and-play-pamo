@@ -1,12 +1,27 @@
 package com.example.learnandplay_pamo.ui.dashboard
 
+
 import android.os.Bundle
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.learnandplay_pamo.databinding.ActivityMainBinding
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.example.learnandplay_pamo.R
 import com.example.learnandplay_pamo.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -31,6 +46,15 @@ private var _binding: FragmentDashboardBinding? = null
     dashboardViewModel.text.observe(viewLifecycleOwner) {
       textView.text = it
     }
+
+
+      val buttonAddition: Button = binding.buttonAddition
+
+      buttonAddition.setOnClickListener {
+        findNavController().navigate(R.id.navigation_games)
+      }
+
+
     return root
   }
 

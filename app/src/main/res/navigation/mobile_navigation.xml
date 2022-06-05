@@ -18,8 +18,17 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
+        android:id="@+id/navigation_games"
+        android:name="com.example.learnandplay_pamo.ui.games.GamesFragment"
+        android:label="@string/title_games"
+        tools:layout="@layout/fragment_games" />
+
+    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.learnandplay_pamo.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+
+
 </navigation>

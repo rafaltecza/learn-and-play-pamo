@@ -1,13 +1,13 @@
-package com.example.learnandplay_pamo.ui.dashboard
+package com.example.learnandplay_pamo.ui.games
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class GamesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Czego dzisiaj chcesz sie nauczyc"
+        value = "Dodawanie"
     }
     val text: LiveData<String> = _text
 }
