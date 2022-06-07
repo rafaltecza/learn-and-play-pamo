@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.learnandplay_pamo.R
 import com.example.learnandplay_pamo.databinding.FragmentGamesBinding
+import kotlin.random.Random
 
 class GamesFragment : Fragment() {
 
@@ -18,6 +19,22 @@ class GamesFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var scoreNumber = 0
+    private var defaultTextScore = ""
+
+    private var buttonAnswer0: Button? = null
+    private var buttonAnswer1: Button? = null
+    private var buttonAnswer2: Button? = null
+    private var buttonAnswer3: Button? = null
+    private var number1Text: TextView? = null
+    private var number2Text: TextView? = null
+    private var scoreText: TextView? = null
+
+    private var random1 = 0
+    private var random2 = 0
+    private var result = 0
+
+    private var answersbuttons: Array<Button?>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,12 +53,65 @@ class GamesFragment : Fragment() {
         }
 
         val buttonBack: Button = binding.back
-
         buttonBack.setOnClickListener {
             findNavController().navigate(R.id.navigation_dashboard)
         }
 
+        number1Text = binding.number1
+        number2Text = binding.number2
+
+        scoreText = binding.scoreText
+        defaultTextScore = scoreText?.text.toString()
+
+        buttonAnswer0 = binding.answer1
+        buttonAnswer1 = binding.answer2
+        buttonAnswer2 = binding.answer3
+        buttonAnswer3 = binding.answer4
+
+        answersbuttons = arrayOf(
+            buttonAnswer0,
+            buttonAnswer1,
+            buttonAnswer2,
+            buttonAnswer3
+        )
+
+        setNewParametersForGame()
+
         return root
+    }
+
+    private fun setNewParametersForGame()
+    {
+         random1 = Random.nextInt(0, 10)
+         random2 = Random.nextInt(0, 10)
+         result = random1 + random2
+
+        number1Text?.text = random1.toString()
+        number2Text?.text = random2.toString()
+
+        val buttonAnswerWithResult = answersbuttons?.get(Random.nextInt(0, answersbuttons!!.size))
+
+        for (button in answersbuttons!!) {
+
+            if(button ==  buttonAnswerWithResult)
+            {
+                button?.text = result.toString()
+            }
+            else
+            {
+                val similarToResult = result + Random.nextInt(0, 5)
+                button?.text = similarToResult.toString()
+            }
+
+            button?.setOnClickListener {
+                if(button.text.equals(result.toString()))
+                {
+                    scoreNumber+=1
+                    scoreText?.text = defaultTextScore + scoreNumber.toString()
+                }
+                setNewParametersForGame()
+            }
+        }
     }
 
     override fun onDestroyView() {
