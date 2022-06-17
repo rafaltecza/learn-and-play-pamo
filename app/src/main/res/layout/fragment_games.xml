@@ -41,6 +41,17 @@
 
 
     <TextView
+        android:id="@+id/calculationSign"
+        android:layout_width="43dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginBottom="44dp"
+        android:text="+"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_game"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/number2"
         android:layout_width="75dp"
         android:layout_height="57dp"

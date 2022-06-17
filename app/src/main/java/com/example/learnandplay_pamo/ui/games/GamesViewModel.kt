@@ -9,7 +9,16 @@ class GamesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
 
-        value = "Dodawanie "
+        when (gameType) {
+            "addition" -> value = "Dodawanie"
+            "subtraction" -> value = "Odejmowanie "
+            "multiplication" -> value = "Mnożenie "
+            "division" -> value = "Dzielenie "
+            else -> {
+                print("Error")
+            }
+        }
+
     }
     val text: LiveData<String> = _text
 }
