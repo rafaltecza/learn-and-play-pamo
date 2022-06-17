@@ -13,7 +13,10 @@ import com.example.learnandplay_pamo.R
 import com.example.learnandplay_pamo.databinding.FragmentGamesBinding
 import kotlin.random.Random
 
+var gameType = "addition"
+
 class GamesFragment : Fragment() {
+
 
     private var _binding: FragmentGamesBinding? = null
     // This property is only valid between onCreateView and
@@ -28,6 +31,7 @@ class GamesFragment : Fragment() {
     private var buttonAnswer3: Button? = null
     private var number1Text: TextView? = null
     private var number2Text: TextView? = null
+    private var calculationSignText: TextView? = null
     private var scoreText: TextView? = null
 
     private var random1 = 0
@@ -59,6 +63,7 @@ class GamesFragment : Fragment() {
 
         number1Text = binding.number1
         number2Text = binding.number2
+        calculationSignText = binding.calculationSign
 
         scoreText = binding.scoreText
         defaultTextScore = scoreText?.text.toString()
@@ -84,7 +89,7 @@ class GamesFragment : Fragment() {
     {
          random1 = Random.nextInt(0, 10)
          random2 = Random.nextInt(0, 10)
-         result = random1 + random2
+         result = getResult(random1, random2)
 
         number1Text?.text = random1.toString()
         number2Text?.text = random2.toString()
@@ -106,12 +111,44 @@ class GamesFragment : Fragment() {
             button?.setOnClickListener {
                 if(button.text.equals(result.toString()))
                 {
+                    //correct answer case
                     scoreNumber+=1
                     scoreText?.text = defaultTextScore + scoreNumber.toString()
+                }
+                else
+                {
+                    //incorrect answer case
                 }
                 setNewParametersForGame()
             }
         }
+    }
+
+    fun getResult(x: Int, y: Int): Int {
+
+        when (gameType) {
+            "addition" ->{
+                calculationSignText?.text = "+"
+                return x + y
+            }
+            "subtraction" ->{
+                calculationSignText?.text = "-"
+                return x - y
+            }
+            "multiplication" ->{
+                calculationSignText?.text = "*"
+                return x * y
+            }
+            "division" ->{
+                calculationSignText?.text = "/"
+                return x / y
+            }
+            else -> {
+                print("Error")
+                return 0
+            }
+        }
+
     }
 
     override fun onDestroyView() {

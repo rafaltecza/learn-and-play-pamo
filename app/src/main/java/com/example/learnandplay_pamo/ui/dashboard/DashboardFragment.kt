@@ -23,6 +23,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.learnandplay_pamo.R
 import com.example.learnandplay_pamo.databinding.FragmentDashboardBinding
+import com.example.learnandplay_pamo.ui.games.GamesFragment
+import com.example.learnandplay_pamo.ui.games.gameType
 
 class DashboardFragment : Fragment() {
 
@@ -49,9 +51,28 @@ private var _binding: FragmentDashboardBinding? = null
 
 
       val buttonAddition: Button = binding.buttonAddition
+      val buttonSubtraction: Button = binding.buttonSubtraction
+      val buttonMultiplication: Button = binding.buttonMultiplication
+      val buttonDivision: Button = binding.buttonDivision
 
-      buttonAddition.setOnClickListener {
+    buttonAddition.setOnClickListener {
+        gameType = "addition"
         findNavController().navigate(R.id.navigation_games)
+      }
+
+    buttonSubtraction.setOnClickListener {
+        gameType = "subtraction"
+        findNavController().navigate(R.id.navigation_games)
+      }
+
+    buttonMultiplication.setOnClickListener {
+        gameType = "multiplication"
+       findNavController().navigate(R.id.navigation_games)
+      }
+
+    buttonDivision.setOnClickListener {
+        gameType = "division"
+       findNavController().navigate(R.id.navigation_games)
       }
 
 
