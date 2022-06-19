@@ -114,5 +114,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer1" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="208dp"
+        android:layout_height="221dp"
+        android:src="@drawable/correct_answer"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="244dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
