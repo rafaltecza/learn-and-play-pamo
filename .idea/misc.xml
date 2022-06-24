@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/correct.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_games.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_games.xml" value="0.19834136962890625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28377532958984386" />
       </map>
     </option>

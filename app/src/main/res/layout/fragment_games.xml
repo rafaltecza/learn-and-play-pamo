@@ -7,6 +7,89 @@
     tools:context=".ui.home.HomeFragment">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/app_name"
+            android:rotation="180"
+            android:src="@drawable/arrow" />
+
+        <FrameLayout
+            android:layout_width="279dp"
+            android:layout_height="95dp">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="260dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/score_new" />
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="162dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="31dp"
+                android:alpha="0.9"
+                android:text="Score : "
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationZ="1dp"
+        tools:layout_editor_absoluteY="185dp">
+
+        <ImageView
+            android:id="@+id/incorrect_answer"
+            android:layout_width="218dp"
+            android:layout_height="263dp"
+            android:layout_marginTop="202dp"
+            android:visibility="gone"
+            android:src="@drawable/incorrect_answer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/correct_answer"
+            android:layout_width="218dp"
+            android:layout_height="263dp"
+            android:layout_marginTop="202dp"
+            android:src="@drawable/correct_answer"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/text_game"
         android:layout_width="0dp"
@@ -17,16 +100,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="39dp"
-        android:text="Powrót do wyboru gier"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/number1"
@@ -60,17 +133,6 @@
         android:text="0"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/text_game"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/scoreText"
-        android:layout_width="210dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="168dp"
-        android:layout_marginBottom="104dp"
-        android:text="Score : "
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/number1"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
@@ -113,14 +175,6 @@
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer1" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="208dp"
-        android:layout_height="221dp"
-        android:src="@drawable/correct_answer"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="244dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

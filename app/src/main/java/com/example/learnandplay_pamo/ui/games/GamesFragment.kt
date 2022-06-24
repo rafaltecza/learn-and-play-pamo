@@ -1,11 +1,15 @@
 package com.example.learnandplay_pamo.ui.games
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -34,11 +38,18 @@ class GamesFragment : Fragment() {
     private var calculationSignText: TextView? = null
     private var scoreText: TextView? = null
 
+    private var correctAnswerImage: ImageView? = null;
+    private var incorrectAnswerImage: ImageView? = null;
+
     private var random1 = 0
     private var random2 = 0
     private var result = 0
 
     private var answersbuttons: Array<Button?>? = null
+
+    fun animateImage(imageView: ImageView) {
+        imageView?.animate()?.alpha(0.0f)?.duration = 300;
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,7 +67,7 @@ class GamesFragment : Fragment() {
             textView.text = it
         }
 
-        val buttonBack: Button = binding.back
+        val buttonBack: ImageButton = binding.back
         buttonBack.setOnClickListener {
             findNavController().navigate(R.id.navigation_dashboard)
         }
@@ -72,6 +83,11 @@ class GamesFragment : Fragment() {
         buttonAnswer1 = binding.answer2
         buttonAnswer2 = binding.answer3
         buttonAnswer3 = binding.answer4
+
+        correctAnswerImage = binding.correctAnswer
+        incorrectAnswerImage = binding.incorrectAnswer
+
+
 
         answersbuttons = arrayOf(
             buttonAnswer0,
@@ -113,11 +129,33 @@ class GamesFragment : Fragment() {
                 {
                     //correct answer case
                     scoreNumber+=1
+                    correctAnswerImage?.isVisible = true
+                    correctAnswerImage?.alpha = 1.0f
+                    correctAnswerImage?.scaleX = 1.0f
+                    correctAnswerImage?.scaleY = 1.0f
+
+                    val handler = Handler()
+                    handler.postDelayed({
+                        correctAnswerImage?.animate()?.alpha(0.0f)?.scaleX(0.0f)?.scaleY(0.0f)?.duration = 300;
+                    }, 1000)
+
+                    incorrectAnswerImage?.isVisible = false
                     scoreText?.text = defaultTextScore + scoreNumber.toString()
+
                 }
                 else
                 {
                     //incorrect answer case
+                    correctAnswerImage?.isVisible = false;
+                    incorrectAnswerImage?.isVisible = true;
+                    incorrectAnswerImage?.alpha = 1.0f
+                    incorrectAnswerImage?.scaleX = 1.0f
+                    incorrectAnswerImage?.scaleY = 1.0f
+
+                    val handler = Handler()
+                    handler.postDelayed({
+                        incorrectAnswerImage?.animate()?.alpha(0.0f)?.scaleX(0.0f)?.scaleY(0.0f)?.duration = 300;
+                    }, 1000)
                 }
                 setNewParametersForGame()
             }
