@@ -8,9 +8,14 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/back"
@@ -47,21 +52,39 @@
                 android:textStyle="bold" />
         </FrameLayout>
 
+        <TableRow
+            android:id="@+id/tableRow"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/constraintLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:translationZ="1dp"
-        tools:layout_editor_absoluteY="185dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/incorrect_answer"
             android:layout_width="218dp"
             android:layout_height="263dp"
             android:layout_marginTop="202dp"
-            android:visibility="gone"
             android:src="@drawable/incorrect_answer"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -94,87 +117,231 @@
         android:id="@+id/text_game"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="308dp"
+        android:layout_marginBottom="343dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <TextView
         android:id="@+id/number1"
         android:layout_width="75dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="44dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="40dp"
         android:text="0"
+        android:textAlignment="center"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_game"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/calculationSign"
+        app:layout_constraintEnd_toEndOf="@+id/calculationSign"
+        app:layout_constraintTop_toTopOf="@+id/number2" />
 
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="104dp"
+        android:layout_height="151dp"
+        android:layout_marginStart="360dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_game"
+        app:layout_constraintEnd_toStartOf="@+id/number2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/tb"
+            android:layout_width="65dp"
+            android:layout_height="86dp"
+            android:layout_weight="1"
+            android:src="@drawable/sheep" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_game"
+        app:layout_constraintEnd_toStartOf="@+id/number2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/tb2"
+            android:layout_width="65dp"
+            android:layout_height="86dp"
+            android:layout_weight="1"
+            android:src="@drawable/sheep" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/calculationSign"
-        android:layout_width="43dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="168dp"
+        android:layout_width="42dp"
+        android:layout_height="62dp"
         android:layout_marginBottom="44dp"
         android:text="+"
+        android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/text_game"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/number2" />
 
     <TextView
         android:id="@+id/number2"
-        android:layout_width="75dp"
-        android:layout_height="57dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="108dp"
-        android:layout_marginBottom="44dp"
         android:text="0"
+        android:textAlignment="center"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_game"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
-    <Button
-        android:id="@+id/answer1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="8dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_game" />
-
-    <Button
-        android:id="@+id/answer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="86dp"
-        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/calculationSign"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_game" />
+        app:layout_constraintStart_toEndOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/calculationSign" />
 
-    <Button
-        android:id="@+id/answer3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="72dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answer1" />
 
-    <Button
-        android:id="@+id/answer4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="88dp"
-        android:text="Button"
+    <LinearLayout
+        android:id="@+id/layout_linear_1"
+        android:layout_width="415dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="9dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answer1" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_game">
+
+        <FrameLayout
+            android:layout_width="76dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/answer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/number2"
+                android:tag="0" />
+
+            <TextView
+                android:id="@+id/answerText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:layout_marginStart="0dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="76dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/answer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/number2"
+                android:tag="1" />
+
+            <TextView
+                android:id="@+id/answerText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:layout_marginStart="0" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_linear_2"
+        android:layout_width="415dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="120dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_game">
+
+        <FrameLayout
+            android:layout_width="76dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/answer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/number2"
+                android:tag="2" />
+
+            <TextView
+                android:id="@+id/answerText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:layout_marginStart="0dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="76dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/answer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/number2"
+                android:tag="3" />
+
+            <TextView
+                android:id="@+id/answerText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:layout_marginStart="0dp" />
+        </FrameLayout>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

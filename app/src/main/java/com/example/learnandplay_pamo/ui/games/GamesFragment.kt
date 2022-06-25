@@ -2,6 +2,7 @@ package com.example.learnandplay_pamo.ui.games
 
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,24 +16,27 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.learnandplay_pamo.R
 import com.example.learnandplay_pamo.databinding.FragmentGamesBinding
+import org.w3c.dom.Text
 import kotlin.random.Random
 
 var gameType = "addition"
 
 class GamesFragment : Fragment() {
-
-
     private var _binding: FragmentGamesBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     private var scoreNumber = 0
     private var defaultTextScore = ""
 
-    private var buttonAnswer0: Button? = null
-    private var buttonAnswer1: Button? = null
-    private var buttonAnswer2: Button? = null
-    private var buttonAnswer3: Button? = null
+    private var buttonAnswer0: ImageButton? = null
+    private var buttonAnswer1: ImageButton? = null
+    private var buttonAnswer2: ImageButton? = null
+    private var buttonAnswer3: ImageButton? = null
+
+    private var buttonAnswerText0: TextView? = null
+    private var buttonAnswerText1: TextView? = null
+    private var buttonAnswerText2: TextView? = null
+    private var buttonAnswerText3: TextView? = null
+
     private var number1Text: TextView? = null
     private var number2Text: TextView? = null
     private var calculationSignText: TextView? = null
@@ -45,7 +49,8 @@ class GamesFragment : Fragment() {
     private var random2 = 0
     private var result = 0
 
-    private var answersbuttons: Array<Button?>? = null
+    private var answersbuttons: Array<ImageButton?>? = null
+    private var answersbuttonstext: Array<TextView?>? = null
 
     fun animateImage(imageView: ImageView) {
         imageView?.animate()?.alpha(0.0f)?.duration = 300;
@@ -84,6 +89,11 @@ class GamesFragment : Fragment() {
         buttonAnswer2 = binding.answer3
         buttonAnswer3 = binding.answer4
 
+        buttonAnswerText0 = binding.answerText1
+        buttonAnswerText1 = binding.answerText2
+        buttonAnswerText2 = binding.answerText3
+        buttonAnswerText3 = binding.answerText4
+
         correctAnswerImage = binding.correctAnswer
         incorrectAnswerImage = binding.incorrectAnswer
 
@@ -96,36 +106,45 @@ class GamesFragment : Fragment() {
             buttonAnswer3
         )
 
-        setNewParametersForGame()
+        answersbuttonstext = arrayOf(
+            buttonAnswerText0,
+            buttonAnswerText1,
+            buttonAnswerText2,
+            buttonAnswerText3
+        )
 
+        setNewParametersForGame()
         return root
     }
 
     private fun setNewParametersForGame()
     {
-         random1 = Random.nextInt(0, 10)
-         random2 = Random.nextInt(0, 10)
-         result = getResult(random1, random2)
+        scoreText?.text = defaultTextScore + scoreNumber.toString()
+        random1 = Random.nextInt(0, 10)
+        random2 = Random.nextInt(0, 10)
+        result = getResult(random1, random2)
 
         number1Text?.text = random1.toString()
         number2Text?.text = random2.toString()
 
         val buttonAnswerWithResult = answersbuttons?.get(Random.nextInt(0, answersbuttons!!.size))
 
+        var index = 0
         for (button in answersbuttons!!) {
 
-            if(button ==  buttonAnswerWithResult)
+            if(button == buttonAnswerWithResult)
             {
-                button?.text = result.toString()
+                answersbuttonstext?.get(index)?.text = result.toString()
             }
             else
             {
                 val similarToResult = result + Random.nextInt(0, 5)
-                button?.text = similarToResult.toString()
+                answersbuttonstext?.get(index)?.text = similarToResult.toString()
+
             }
 
-            button?.setOnClickListener {
-                if(button.text.equals(result.toString()))
+            button?.setOnClickListener { view ->
+                if(answersbuttonstext?.get(view.tag.toString().toInt())?.text?.equals(result.toString()) == true)
                 {
                     //correct answer case
                     scoreNumber+=1
@@ -159,6 +178,8 @@ class GamesFragment : Fragment() {
                 }
                 setNewParametersForGame()
             }
+
+            index++
         }
     }
 

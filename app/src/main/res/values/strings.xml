@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Wybór gier</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_authors">Autorzy</string>
     <string name="title_games">Gry liczbowe</string>
 
 </resources>

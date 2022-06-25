@@ -5,9 +5,13 @@
       <map>
         <entry key="app/src/main/res/drawable/correct.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_games.xml" value="0.19834136962890625" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1985931396484375" />
+        <entry key="app/src/main/res/layout/fragment_authors.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.22106781005859372" />
+        <entry key="app/src/main/res/layout/fragment_games.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28377532958984386" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.10833333333333334" />
       </map>
     </option>
   </component>
