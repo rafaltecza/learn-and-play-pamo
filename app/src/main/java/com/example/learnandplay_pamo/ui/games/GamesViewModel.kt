@@ -9,7 +9,7 @@ class GamesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
 
-        when (gameType) {
+        when (gameType) { // Texts for all game types
             "addition" -> value = "Dodawanie"
             "subtraction" -> value = "Odejmowanie "
             "multiplication" -> value = "Mnożenie "

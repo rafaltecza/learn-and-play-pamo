@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.learnandplay_pamo.databinding.ActivityMainBinding
-
+//Main Activity class
 class MainActivity : AppCompatActivity() {
 
 private lateinit var binding: ActivityMainBinding
